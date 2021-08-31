@@ -37,16 +37,14 @@
                 section2.innerHTML = ''
                 input.innerHTML = ''
 
-                res.data.forEach(foodName => {
-                    section.innerHTML += `<p>${foodName}</p>`
-
-                    if(name === 'pizza') {
+                if(name === 'pizza') {
                         section2.innerHTML = `<p>YEEOOOOOO</p>`
                     }else {
                         section2.innerHTML = `<p>wtf</p>`
                     }
 
-                    
+                res.data.forEach(foodName => {
+                    section.innerHTML += `<p>${foodName}</p>`     
                 })
             })
         }
