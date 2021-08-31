@@ -23,7 +23,7 @@ app.post('/api/food', (req, res) => {
 
     const index = foods.findIndex(foodName => foodName === name)
 
-    if(name !== '') {
+    if(name === 'pizza' ) {
         foods.push(name)
         rollbar.log('Food added')
         res.status(200).send(foods)
