@@ -27,10 +27,15 @@ app.post('/api/food', (req, res) => {
         foods.push(name)
         rollbar.log('Food added')
         res.status(200).send(foods)
-    }else if (name === '') {
+    }else if (name === 'pizza') {
+        rollbar.log('this mf likes pizza nice')
+        res.status.send(foods)
+    }
+    else if (name === '') {
         rollbar.error('No food given')
         res.status(400).send('must send food name')
-    }else {
+    }
+    else {
         rollbar.error('food already exists')
         res.status(400).send('food already exists')
     }
