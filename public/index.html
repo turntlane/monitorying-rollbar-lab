@@ -9,6 +9,9 @@
 </head>
 <body>
 
+
+
+
     <h1>ur fav food</h1>
     <aside id="section2"></aside>
     <form action="">
@@ -38,11 +41,12 @@
                 input.innerHTML = ''
 
                 if(input.value === 'pizza') {
+                   
+                    let newInput = document.createElement('aside')
+                    newInput.innerHTML = `<h1>WHAT TOPPINGS????</h1>
+                    <input type="text" placeholder="enter toppings">
+                    <button>submit</button>`
 
-                    let newHeader = document.createElement('h1')                   
-                    let newInput = document.createElement('input')
-                    newHeader.textContent = 'WHAT TOPPINGS????'
-                    
 
                         // section2.innerHTML = `<p>dis dude said za</p>`
                     }else {
