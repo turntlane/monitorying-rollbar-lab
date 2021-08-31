@@ -7,7 +7,7 @@ let rollbar = new Rollbar({
     captureUncaught: true,
     captureUnhandledRejections: true
 })
-
+const foods = []
 const app = express()
 app.use(express.json())
 
@@ -16,7 +16,33 @@ app.get('/', (req, res) => {
     rollbar.info('html file saved')
 })
 
+
+app.post('/api/food', (req, res) => {
+    let {name} = req.body
+    name = name.trim()
+
+    const index = foods.findIndex(foodName => foodName === name)
+
+    if(name !== '') {
+        foods.push(name)
+        rollbar.log('Food added')
+        res.status(200).send(foods)
+    }else if (name === '') {
+        rollbar.error('No food given')
+        res.status(400).send('must send food name')
+    }else {
+        rollbar.error('food already exists')
+        res.status(400).send('food already exists')
+    }
+
+})
+
+
+
+
 const port = process.env.PORT || 5000
+
+app.use(rollbar.errorHandler())
 
 
 app.listen(port, () => {

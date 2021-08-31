@@ -8,7 +8,57 @@
 </head>
 <body>
 
-    <h1>howdy</h1>
+    <h1>do you like games</h1>
+    <form action="">
+        <input type="text" placeholder="yes or no">
+        <button>submit</button>
+    </form>
+
+    <section></section>
+    
+
+    <script>
+        const form = document.querySelector('form')
+        const input = document.querySelector('input')
+        const button = document.querySelector('button')
+        const section = document.querySelector('section')
+
+
+
+        function submitHandler(e) {
+            e.preventDefault()
+            axios.post('/api/food', {name: input.value})
+            .then(res => {
+                section.innerHTML = ''
+                input.innerHTML = ''
+
+                res.data.forEach(foodName => {
+                    section.innerHTML += `<p>${foodName}</p>`
+                })
+            })
+        }
+
+        form.addEventListener('submit', submitHandler)
+
+
+
+        // form.addEventListener('submit', (str) => {
+        //     // preventDefault()
+        //     if(str.value === 'yes') {
+        //         section.textContent = 'Yessir'
+        //     }else {
+        //         section.textContent = 'wtf'
+        //     }
+        // })
+
+
+
+
+
+
+
+
+    </script>
     
 </body>
 </html>
