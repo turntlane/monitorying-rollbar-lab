@@ -41,8 +41,8 @@
                 input.innerHTML = ''
 
                 
-                axios.post('/api/toppings', {toppings: newInput.value})
-                .then(res => {
+                // axios.post('/api/toppings', {toppings: newInput.value})
+                // .then(res => {
                     if(input.value === 'pizza') {
                         let newInput = document.createElement('aside')
                    newInput.innerHTML = `<h1>WHAT TOPPINGS????</h1>
@@ -60,7 +60,7 @@
                        section2.innerHTML = `<p>wtf</p>`
                    }
 
-                    })
+                    // })
                    
 
                    
