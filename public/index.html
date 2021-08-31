@@ -16,6 +16,7 @@
     </form>
 
     <section></section>
+    <section id="section2"></section>
     
 
     <script>
@@ -23,6 +24,7 @@
         const input = document.querySelector('input')
         const button = document.querySelector('button')
         const section = document.querySelector('section')
+        const section2 = document.getElementById('section2')
 
 
 
@@ -35,6 +37,14 @@
 
                 res.data.forEach(foodName => {
                     section.innerHTML += `<p>${foodName}</p>`
+
+                    if(res.data === 'pizza') {
+                        section2.innerHTML = `<p>YEEOOOOOO</p>`
+                    }else {
+                        section2.innerHTML = `<p>wtf</p>`
+                    }
+
+                    
                 })
             })
         }
