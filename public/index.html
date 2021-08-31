@@ -41,19 +41,32 @@
                 input.innerHTML = ''
 
                 if(input.value === 'pizza') {
+
+                    axios.post('/api/toppings', {toppings: newInput.value})
+                    .then(res => {
+                        let newInput = document.createElement('aside')
+                   newInput.innerHTML = `<h1>WHAT TOPPINGS????</h1>
+                   <input class="toppings-input" type="text" placeholder="enter toppings">
+                   <button>submit</button>`
+
+                   document.body.appendChild(newInput)
+
+                   res.data.forEach(toppingsName => {
+                       section2.innerHTML = `<p>${toppingsName}</p>`
+                   })
+
+                    })
                    
-                    let newInput = document.createElement('aside')
-                    newInput.innerHTML = `<h1>WHAT TOPPINGS????</h1>
-                    <input type="text" placeholder="enter toppings">
-                    <button>submit</button>`
 
-                    document.body.appendChild(newInput)
+                   
 
 
-                        // section2.innerHTML = `<p>dis dude said za</p>`
-                    }else {
-                        section2.innerHTML = `<p>wtf</p>`
-                    }
+                       // section2.innerHTML = `<p>dis dude said za</p>`
+                   }else {
+                       section2.innerHTML = `<p>wtf</p>`
+                   }
+
+
 
                 res.data.forEach(foodName => {
                     section.innerHTML += `<p>${foodName}</p>`

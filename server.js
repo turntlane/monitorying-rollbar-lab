@@ -8,6 +8,7 @@ let rollbar = new Rollbar({
     captureUnhandledRejections: true
 })
 const foods = []
+const top = []
 const app = express()
 app.use(express.json())
 
@@ -46,6 +47,22 @@ app.post('/api/food', (req, res) => {
         res.status(400).send('food already exists')
     }
 
+})
+
+
+app.post('/api/toppings', (req, res) => {
+    let {toppings} = req.body
+    toppings = toppings.trim()
+
+    if(toppings !== ''){
+        top.push(toppings)
+        rollbar.log('toppings added')
+        res.status(200).send(top)
+    }else {
+        rollbar.warning('toppings didnt work')
+        res.status(400).send('topping is bad')
+
+    }
 })
 
 
