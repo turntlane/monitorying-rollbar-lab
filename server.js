@@ -15,6 +15,12 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '/public/index.html'))
     rollbar.info('html file saved')
 })
+//for javascript file
+
+// app.get('/index', (req, res) => {
+//     res.sendFile(path.join(__dirname, '/public/index.js'))
+//     rollbar.info('html file saved')
+// })
 
 
 app.post('/api/food', (req, res) => {

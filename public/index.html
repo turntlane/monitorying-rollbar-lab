@@ -38,15 +38,24 @@
                 input.innerHTML = ''
 
                 if(input.value === 'pizza') {
-                        section2.innerHTML = `<p>dis dude said za</p>`
+
+                    let newHeader = document.createElement('h1')                   
+                    let newInput = document.createElement('input')
+                    newHeader.textContent = 'WHAT TOPPINGS????'
+                    
+
+                        // section2.innerHTML = `<p>dis dude said za</p>`
                     }else {
                         section2.innerHTML = `<p>wtf</p>`
                     }
 
                 res.data.forEach(foodName => {
-                    section.innerHTML += `<p>${foodName}</p>`     
+                    section.innerHTML += `<p>${foodName}</p>`
+                       
                 })
+                input.innerHTML = ''  
             })
+
         }
 
         form.addEventListener('submit', submitHandler)
