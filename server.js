@@ -25,7 +25,7 @@ app.post('/api/food', (req, res) => {
 
     if(name === 'pizza' ) {
         foods.push(name)
-        rollbar.log('Food added')
+        rollbar.log('this dude likes za')
         res.status(200).send(foods)
     }else if (name === 'pizza') {
         rollbar.log('this mf likes pizza nice')
