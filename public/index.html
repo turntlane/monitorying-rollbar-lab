@@ -40,10 +40,10 @@
                 section2.innerHTML = ''
                 input.innerHTML = ''
 
-                if(input.value === 'pizza') {
-
-                    axios.post('/api/toppings', {toppings: newInput.value})
-                    .then(res => {
+                
+                axios.post('/api/toppings', {toppings: newInput.value})
+                .then(res => {
+                    if(input.value === 'pizza') {
                         let newInput = document.createElement('aside')
                    newInput.innerHTML = `<h1>WHAT TOPPINGS????</h1>
                    <input class="toppings-input" type="text" placeholder="enter toppings">
@@ -54,17 +54,17 @@
                    res.data.forEach(toppingsName => {
                        section2.innerHTML = `<p>${toppingsName}</p>`
                    })
+                }                    
+                else {
+                       // section2.innerHTML = `<p>dis dude said za</p>`
+                       section2.innerHTML = `<p>wtf</p>`
+                   }
 
                     })
                    
 
                    
 
-
-                       // section2.innerHTML = `<p>dis dude said za</p>`
-                   }else {
-                       section2.innerHTML = `<p>wtf</p>`
-                   }
 
 
 
