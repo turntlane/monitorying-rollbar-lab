@@ -29,7 +29,7 @@ app.post('/api/food', (req, res) => {
         res.status(200).send(foods)
     }else if (name === 'pizza') {
         rollbar.log('this mf likes pizza nice')
-        res.status.send(foods)
+        res.status(200).send(foods)
     }
     else if (name === '') {
         rollbar.error('No food given')
