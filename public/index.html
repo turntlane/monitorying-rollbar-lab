@@ -34,12 +34,13 @@
             axios.post('/api/food', {name: input.value})
             .then(res => {
                 section.innerHTML = ''
+                section2.innerHTML = ''
                 input.innerHTML = ''
 
                 res.data.forEach(foodName => {
                     section.innerHTML += `<p>${foodName}</p>`
 
-                    if(res.data === 'pizza') {
+                    if(name === 'pizza') {
                         section2.innerHTML = `<p>YEEOOOOOO</p>`
                     }else {
                         section2.innerHTML = `<p>wtf</p>`
